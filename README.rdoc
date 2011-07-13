@@ -32,6 +32,7 @@ Note an underscore is used instead of a colon for the Rails 2 generators.
 
 * nifty:layout: generates generic layout, stylesheet, and helper files.
 * nifty:scaffold: generates a controller and optional model/migration.
+* fread:scaffold: generates a controller and optional model/migration just as above, but reads parameters for the Model from a file, rather than stdin.
 * nifty:config: generates a config YAML file and loader.
 * nifty:authentication: generates user model with sign up and log in.
 
@@ -52,6 +53,17 @@ There are a few changes to the generated code as well, such as no XML format by 
 
 It also offers support for HAML, Shoulda, and RSpec.
 
+<b>How do you use fread:scaffold?</b>
+
+You'll need a list of parameters in a file, linefeed separated, like the following:
+
+  name:string
+  published:boolean
+  published_at:datetime
+
+Then, run the generator like this:
+
+  rails g fread:scaffold post /path/to/parameters.file index new edit 
 
 <b>I get "undefined method 'title'" error.</b>
 
